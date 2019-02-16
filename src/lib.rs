@@ -135,30 +135,6 @@ pub struct Bloke {
     pub roundness_head: u16,
     /// Default: 32768u16 (65535 = round ear, 0 = pointy ear)
     pub roundness_ear: u16,
-    /// Default: (32 bit RGBA)
-    pub color_headhair1: u32,
-    /// Default: (32 bit RGBA)
-    pub color_headhair2: u32,
-    /// Default: (32 bit RGBA)
-    pub color_headhair3: u32,
-    /// Default: (32 bit RGBA)
-    pub color_bodyhair: u32,
-    /// Default: (32 bit RGBA)
-    pub color_mustache: u32,
-    /// Default: (32 bit RGBA)
-    pub color_beard: u32,
-    /// Default: (32 bit RGBA)
-    pub color_foothair: u32,
-    /// Default: (32 bit RGBA)
-    pub color_armpithair: u32,
-    /// Default: (32 bit RGBA)
-    pub color_eyelash: u16,
-    /// Default: (32 bit RGBA)
-    pub color_eyebrow: u16,
-    /// Default: (32 bit RGBA)
-    pub color_eye: u16,
-    /// Default: (32 bit RGBA)
-    pub color_fingertoenail: u32,
     /// Default: 32768u16 (65535 = more brown-red color, 0 = more brown-blue color)
     pub color_skinhue: u16,
     /// Default: 32768u16 (65535 = dark (black) skin, 0 = light (white) skin)
@@ -177,10 +153,40 @@ pub struct Bloke {
     pub dist_eye: u16,
     /// Default: 32768 (65535 = face & limb freckles, 32768 = limb freckles, 0 = no freckles)
     pub freckles: u16,
+    /// Default: (32 bit RGBA)
+    pub color_headhair1: u32,
+    /// Default: (32 bit RGBA)
+    pub color_headhair2: u32,
+    /// Default: (32 bit RGBA)
+    pub color_headhair3: u32,
+    /// Default: (32 bit RGBA)
+    pub color_bodyhair: u32,
+    /// Default: (32 bit RGBA)
+    pub color_mustache: u32,
+    /// Default: (32 bit RGBA)
+    pub color_beard: u32,
+    /// Default: (32 bit RGBA)
+    pub color_foothair: u32,
+    /// Default: (32 bit RGBA)
+    pub color_armpithair: u32,
+    /// Default: (32 bit RGBA)
+    pub color_eyelash: u32,
+    /// Default: (32 bit RGBA)
+    pub color_eyebrow: u32,
+    /// Default: (32 bit RGBA)
+    pub color_eye: u32,
+    /// Default: (32 bit RGBA)
+    pub color_fingertoenail: u32,
     /// Default: 32768u16 (65535 = high pitched, 0 = low pitched)
     pub voice_pitch: u16,
-    /// Default: 32768u16 (65535 = smooth voice, 0 = gravelly voice)
-    pub voice_sound: u16,
-    /// Default: 32768u16 (65535 = nasal voice, 0 = plain voice)
-    pub voice_nasal: u16,
+    /// Default: 32768u16 (TODO)
+    pub voice_waveform: u16,
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn filesize() {
+        assert_eq!(std::mem::size_of::<crate::Bloke>(), 192)
+    }
 }

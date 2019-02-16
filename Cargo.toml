@@ -1,8 +1,28 @@
+# Copyright © Jeron Aldaron Lau 2019.
+# Dual-licensed under either the MIT License or the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at https://www.boost.org/LICENSE_1_0.txt)
+#
+# XXXX  X                    /5\——————/5\       XXXX      X           X
+# X   X X   XXX   XXXX      |   0    0   |     X      XXX   XXXX XXXX X X   X
+# X   X X  X   X  X   X  /"\|     <>     |/"\  X      X   X    X    X X X   X
+# XXXX  X  X   X  X   X  \  \\_  ====  _//  /  X   XX X   X   X    X  X  X X
+# X     X  X   X  XXXX    \_              _/   X    X X   X  X    X   X   X
+# X     X   XXX   X       / \            / \    XXXX  X   X XXXX XXXX X   X
+#                 X       \                /                            XX
+#                          --____________--
+
 [package]
 name = "bloke"
 version = "0.1.0"
 authors = ["Jeron Aldaron Lau <jeronaldaron@gmail.com>"]
 edition = "2018"
+
+documentation = "https://docs.rs/bloke"
+repository = "https://github.com/plopgrizzly/bloke"
+readme = "README.md"
+description = "A video game avatar system, similar to Nintendo's Mii - but open source and for PC / phone games."
+keywords = ["avatar", "video-games", "bloke", "character", "file-format"]
+categories = ["multimedia::video", "data-structures", "game-engines", "graphics", "parsing"]
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }

@@ -47,16 +47,12 @@ pub struct Bloke {
     pub belly_size: u16,
     /// Default: 32768 (65535 = has chest, 0 = flat chest)
     pub chest_size: u16,
-    /// Default: 32768 (65535 = round body, 0 = straight body)
-    pub curve_size: u16,
     /// Default: 32768 (65535 = big arch spine, 0 = straight spine)
     pub spine_size: u16,
     /// Default: 32768 (65535 = hunched over spine, 0 = straight spine)
     pub hunch_size: u16,
     /// Default: 32768 (65535 = sloped shoulder, 0 = flat shoulder)
     pub shoulder_size: u16,
-    /// Default: 32768 (65535 = face & limb freckles, 32768 = limb freckles, 0 = no freckles)
-    pub freckles: u16,
     /// Default: 32768 (65535 = muscular arms, 0 = no-muscle arms)
     pub arm_muscle_size: u16,
     /// Default: 32768 (65535 = fat arms, 0 = no-fat arms)
@@ -125,86 +121,66 @@ pub struct Bloke {
     pub waist_size: u16,
     /// Default: 32768u16 (65535 = wide ankles, 0 = small ankles)
     pub ankle_size: u16,
-    /// Default: 32768u16 (65535 = finger rounded edges, 0 = finger right angles)
-    pub roundfinger_size: u16,
-    /// Default: 32768u16 (65535 = round head, 0 = almost-cubelike-head)
-    pub roundhead_size: u16,
-    /// Default: 32768u16 (65535 = round ear, 0 = pointy ear)
-    pub roundear_size: u16,
     /// Default: 32768u16 (65535 = long foot hair, 0 = no foot hair)
     pub foothair_size: u16,
     /// Default: 32768u16 (65535 = long armpit hair, 0 = no armpit hair)
     pub armpithair_size: u16,
     /// Default: 32768u16 (65535 = long nose hair, 0 = no nose hair)
     pub nosehair_size: u16,
+    /// Default: 32768 (65535 = round body, 0 = straight body)
+    pub roundness_body: u16,
+    /// Default: 32768u16 (65535 = finger rounded edges, 0 = finger right angles)
+    pub roundness_finger: u16,
+    /// Default: 32768u16 (65535 = round head, 0 = almost-cubelike-head)
+    pub roundness_head: u16,
+    /// Default: 32768u16 (65535 = round ear, 0 = pointy ear)
+    pub roundness_ear: u16,
+    /// Default: (32 bit RGBA)
+    pub color_headhair1: u32,
+    /// Default: (32 bit RGBA)
+    pub color_headhair2: u32,
+    /// Default: (32 bit RGBA)
+    pub color_headhair3: u32,
+    /// Default: (32 bit RGBA)
+    pub color_bodyhair: u32,
+    /// Default: (32 bit RGBA)
+    pub color_mustache: u32,
+    /// Default: (32 bit RGBA)
+    pub color_beard: u32,
+    /// Default: (32 bit RGBA)
+    pub color_foothair: u32,
+    /// Default: (32 bit RGBA)
+    pub color_armpithair: u32,
+    /// Default: (32 bit RGBA)
+    pub color_eyelash: u16,
+    /// Default: (32 bit RGBA)
+    pub color_eyebrow: u16,
+    /// Default: (32 bit RGBA)
+    pub color_eye: u16,
+    /// Default: (32 bit RGBA)
+    pub color_fingertoenail: u32,
+    /// Default: 32768u16 (65535 = more brown-red color, 0 = more brown-blue color)
+    pub color_skinhue: u16,
+    /// Default: 32768u16 (65535 = dark (black) skin, 0 = light (white) skin)
+    pub color_skinshade: u16,
+    /// Default: 32768u16 (65535 = light red, 0 = light blue)
+    pub color_lip: u16,
+    /// Default: 0 (65535 = yellow, 0 = white)
+    pub color_teeth: u16,
+    /// Default: 0b1111_1111_1111_1111 (4 bit = 4 teeth, top left, right, bottom left, right)
+    pub havewhich_teeth: u16,
+    /// Default: 32768u16 (65535 = long fingernails, 0 = short fingernails)
+    pub len_nail: u16,
+    /// Default: 32768u16 (65535 = long, 0 = short)
+    pub len_arm: u16,
+    /// Default: 32768u16 (65535 = eyes far apart, 0 = eyes close to each other)
+    pub dist_eye: u16,
+    /// Default: 32768 (65535 = face & limb freckles, 32768 = limb freckles, 0 = no freckles)
+    pub freckles: u16,
     /// Default: 32768u16 (65535 = high pitched, 0 = low pitched)
     pub voice_pitch: u16,
     /// Default: 32768u16 (65535 = smooth voice, 0 = gravelly voice)
     pub voice_sound: u16,
     /// Default: 32768u16 (65535 = nasal voice, 0 = plain voice)
     pub voice_nasal: u16,
-    /// Default: 128u8 128u8 (32 bit RGBA)
-    pub headhair1_redgreen: u16,
-    /// Default: 0u8 255u8 (32 bit RGBA; A0 = clear and reflective, A255 opaque)
-    pub headhair1_bluealpha: u16,
-    /// Default: 128u8 128u8 (32 bit RGBA - Highlights A)
-    pub headhair2_redgreen: u16,
-    /// Default: 0u8 255u8 (32 bit RGBA; A0 = no highlights A, A255 opaque)
-    pub headhair2_bluealpha: u16,
-    /// Default: 128u8 128u8 (32 bit RGBA - Highlights B)
-    pub headhair3_redgreen: u16,
-    /// Default: 0u8 255u8 (32 bit RGBA; A0 = no highlights B, A255 opaque)
-    pub headhair3_bluealpha: u16,
-    /// Default: 128u8 128u8 (32 bit RGBA)
-    pub bodyhair_redgreen: u16,
-    /// Default: 0u8 255u8 (32 bit RGBA; A0 = clear and reflective, A255 opaque)
-    pub bodyhair_bluealpha: u16,
-    /// Default: 128u8 128u8 (32 bit RGBA)
-    pub mustachehair_redgreen: u16,
-    /// Default: 0u8 255u8 (32 bit RGBA; A0 = clear and reflective, A255 opaque)
-    pub mustachehair_bluealpha: u16,
-    /// Default: 128u8 128u8 (32 bit RGBA)
-    pub beardhair_redgreen: u16,
-    /// Default: 0u8 255u8 (32 bit RGBA; A0 = clear and reflective, A255 opaque)
-    pub beardhair_bluealpha: u16,
-    /// Default: 128u8 128u8 (32 bit RGBA)
-    pub foothair_redgreen: u16,
-    /// Default: 0u8 255u8 (32 bit RGBA; A0 = clear and reflective, A255 opaque)
-    pub foothair_bluealpha: u16,
-    /// Default: 128u8 128u8 (32 bit RGBA)
-    pub armpithair_redgreen: u16,
-    /// Default: 0u8 255u8 (32 bit RGBA; A0 = clear and reflective, A255 opaque)
-    pub armpithair_bluealpha: u16,
-    /// Default: 128u8 128u8 (32 bit RGBA)
-    pub eyelashhair_redgreen: u16,
-    /// Default: 0u8 255u8 (32 bit RGBA; A0 = clear and reflective, A255 opaque)
-    pub eyelashhair_bluealpha: u16,
-    /// Default: 128u8 128u8 (32 bit RGBA)
-    pub eyebrowhair_redgreen: u16,
-    /// Default: 0u8 255u8 (32 bit RGBA; A0 = clear and reflective, A255 opaque)
-    pub eyebrowhair_bluealpha: u16,
-    /// Default: 32768u16 (65535 = brown, 32768 = green, 0 = blue)
-    pub eyehue_color: u16,
-    /// Default: 32768u16 (65535 = light, 0 = dark)
-    pub eyeshade_color: u16,
-    /// Default: 32768u16 (65535 = more brown-red color, 0 = more brown-blue color)
-    pub skinhue_color: u16,
-    /// Default: 32768u16 (65535 = dark (black) skin, 0 = light (white) skin)
-    pub skinshade_color: u16,
-    /// Default: 0 (65535 = yellow, 0 = white)
-    pub teeth_color: u16,
-    /// Default: 0b1111_1111_1111_1111 (4 bit = 4 teeth, top left, right, bottom left, right)
-    pub teeth_have: u16,
-    /// Default: 128u8 128u8 (32 bit RGBA)
-    pub fingertoenail_redgreen: u16,
-    /// Default: 0u8 255u8 (32 bit RGBA; A0 = clear and reflective, A255 opaque)
-    pub fingertoenail_bluealpha: u16,
-    /// Default: 32768u16 (65535 = long, 0 = short)
-    pub fingernail_length: u16,
-    /// Default: 32768u16 (65535 = long, 0 = short)
-    pub armlength_size: u16,
-    /// Default: 32768u16 (65535 = eyes far apart, 0 = eyes close to each other)
-    pub eye_distance: u16,
-    /// Default: 32768u16 (65535 = light red, 0 = light blue)
-    pub lip_color: u16,
 }

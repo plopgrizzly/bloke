@@ -16,21 +16,21 @@ pub struct Bloke {
     /// Version must be 1
     pub version: u16,
     /// Default: 32768 (65535 = tall arch, 0 = flat feet)
-    pub arch_height: u16,
+    pub height_arch: u16,
     /// Default: 32768 (65535 = tall legs, 0 = short legs)
-    pub legs_height: u16,
+    pub height_leg: u16,
     /// Default: 32768 (65535 = tall body, 0 = short body)
-    pub body_height: u16,
+    pub height_body: u16,
     /// Default: 32768 (65535 = long neck, 0 = short neck)
-    pub neck_height: u16,
+    pub height_neck: u16,
     /// Default: 32768 (65535 = tall head, 0 = short head)
-    pub head_height: u16,
+    pub height_head: u16,
     /// Default: 32768 (65535 = tall/thick hair, 0 = bald)
-    pub hair_height: u16,
+    pub height_hair: u16,
     /// Default: 32768 (65535 = big feet, 0 = small feet)
-    pub foot_size: u16,
+    pub length_foot: u16,
     /// Default: 32768 (65535 = long toes, 0 = short toes)
-    pub toes_size: u16,
+    pub length_toes: u16,
     /// Default: 32768 (65535 = fat leg, 0 = no-fat leg)
     pub legs_size: u16,
     /// Default: 32768 (65535 = big knee, 0 = no visible knee)
@@ -86,9 +86,9 @@ pub struct Bloke {
     /// Default: 32768u16 (65535 = curved upwards, 0 = curved downwards)
     pub eyelashcurve_size: u16,
     /// Default: 32768u16 (65535 = thick eyebrows, 0 = thin eyebrows)
-    pub eyebrow_thickness: u16,
+    pub thickness_eyebrow: u16,
     /// Default: 32768u16 (65535 = unibrow, 0 = no eyebrows)
-    pub eyebrow_width: u16,
+    pub width_eyebrow: u16,
     /// Default: 32768u16 (65535 = ears stick out, 0 = flat ears)
     pub ear_size: u16,
     /// Default: 32768u16 (65535 = double chin, 0 = mouth very close to chin)

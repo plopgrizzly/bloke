@@ -1,3 +1,6 @@
+use serde::{Serialize, Deserialize};
+use bincode::{serialize, deserialize};
+
 /// A Bloke (from a `*.bloke` file).
 ///
 /// A Bloke File stores your Bloke (`*.bloke`).  Games may render the Bloke according to their own
@@ -12,6 +15,7 @@
 /// items).  What is included are other stylistic choices like hair dye and nail polish.  Video
 /// games may also apply this format to other imaginary life forms in game, which are not human
 /// (example: a game where you play as an alien).
+#[derive(Serialize, Deserialize, PartialEq, Debug)]
 pub struct Bloke {
     /// Version must be 1
     pub version: u16,
@@ -32,101 +36,99 @@ pub struct Bloke {
     /// Default: 32768 (65535 = long toes, 0 = short toes)
     pub length_toes: u16,
     /// Default: 32768 (65535 = fat leg, 0 = no-fat leg)
-    pub legs_size: u16,
+    pub size_legs: u16,
     /// Default: 32768 (65535 = big knee, 0 = no visible knee)
-    pub knee_size: u16,
+    pub size_knee: u16,
     /// Default: 32768 (65535 = muscular lower leg, 0 = no-muscles lower leg)
-    pub calf_size: u16,
+    pub size_calf: u16,
     /// Default: 32768 (65535 = muscular upper leg, 0 = no-muscles upper leg)
-    pub hams_size: u16,
+    pub size_hamstring: u16,
     /// Default: 32768 (65535 = big butt, 0 = small butt)
-    pub butt_size: u16,
+    pub size_butt: u16,
     /// Default: 32768 (65535 = wide body, 0 = thin body)
-    pub body_size: u16,
+    pub size_body: u16,
     /// Default: 32768 (65535 = beer gut, 0 = flat stomach)
-    pub belly_size: u16,
+    pub size_belly: u16,
     /// Default: 32768 (65535 = has chest, 0 = flat chest)
-    pub chest_size: u16,
+    pub size_chest: u16,
     /// Default: 32768 (65535 = big arch spine, 0 = straight spine)
-    pub spine_size: u16,
+    pub size_spine: u16,
     /// Default: 32768 (65535 = hunched over spine, 0 = straight spine)
-    pub hunch_size: u16,
+    pub size_hunch: u16,
     /// Default: 32768 (65535 = sloped shoulder, 0 = flat shoulder)
-    pub shoulder_size: u16,
+    pub size_shoulder: u16,
     /// Default: 32768 (65535 = muscular arms, 0 = no-muscle arms)
-    pub arm_muscle_size: u16,
+    pub size_arm_muscle: u16,
     /// Default: 32768 (65535 = fat arms, 0 = no-fat arms)
-    pub arm_fat_size: u16,
+    pub size_arm_fat: u16,
     /// Default: 32768 (65535 = big elbow, 0 = no visible elbow)
-    pub elbow_size: u16,
+    pub size_elbow: u16,
     /// Default: 32768 (65535 = big hands, 0 = small hands)
-    pub hand_size: u16,
+    pub size_hand: u16,
     /// Default: 32768 (65535 = long fingers, 0 = short fingers)
-    pub finger_size: u16,
+    pub size_finger: u16,
     /// Default: 32768 (65535 = big head, 0 = small head)
-    pub head_size: u16,
+    pub size_head: u16,
     /// Default: 32768 (65535 = big nose, 0 = small nose)
-    pub nose_size: u16,
+    pub size_nose: u16,
     /// Default: 32768 (65535 = pointy nose, 0 = flat nose)
-    pub nosepoint_size: u16,
+    pub size_nosepoint: u16,
     /// Default: 32768 (65535 = big nostrils, 0 = small nostrils)
-    pub nostril_size: u16,
+    pub size_nostril: u16,
     /// Default: 32768 (65535 = wide mouth, 0 = small mouth)
-    pub mouth_size: u16,
+    pub size_mouth: u16,
     /// Default: 32768 (65535 = big lips, 0 = no lips)
-    pub lips_size: u16,
+    pub size_lips: u16,
     /// Default: 32768 (65535 = big eyes, 0 = small eyes)
-    pub eyes_size: u16,
+    pub size_eyes: u16,
     /// Default: 32768 (65535 = eyes rest mostly closed, 0 = eyes rest mostly open)
-    pub eyelid_size: u16,
+    pub size_eyelid: u16,
     /// Default: 32768 (65535 = concave/deep around eyes, 0 = eyes as far out as forehead)
-    pub eyearea_size: u16,
+    pub size_eyearea: u16,
     /// Default: 32768u16 (65535 = long eyelashes, 0 = short eyelashes)
-    pub eyelash_size: u16,
+    pub size_eyelash: u16,
     /// Default: 32768u16 (65535 = curved upwards, 0 = curved downwards)
-    pub eyelashcurve_size: u16,
+    pub size_eyelashcurve: u16,
+    /// Default: 32768u16 (65535 = ears stick out, 0 = flat ears)
+    pub size_ear: u16,
+    /// Default: 32768u16 (65535 = double chin, 0 = mouth very close to chin)
+    pub size_chin: u16,
+    /// Default: 32768u16 (65535 = spaced out face, 0 = compact face)
+    pub size_face: u16,
+    /// Default: 32768u16 (65535 = tall forehead, 0 = short forehead)
+    pub size_forehead: u16,
+    /// Default: 32768u16 (65535 = convex/chipmunk cheeks, 0 = concave/bony cheeks)
+    pub size_cheek: u16,
+    /// Default: 0u16 (65535 = long mustache (extends off face), 0 = no mustache)
+    pub size_mustache: u16,
+    /// Default: 0u16 (65535 = long beard (down to knees), 0 = no beard)
+    pub size_beard: u16,
+    /// Default: 32768u16 (65535 = thick/long hair on sides, 0 = shaved on sides hair)
+    pub size_sidehair: u16,
+    /// Default: 32768u16 (65535 = long hair, 0 = shaved)
+    pub size_bodyhair: u16,
+    /// Default: 32768u16 (65535 = protruding bottom of chin, 0 = rounded bottom of chin)
+    pub size_chinextend: u16,
+    /// Default: 32768u16 (65535 = back of head extends, 0 = back of head is flat with neck)
+    pub size_backhead: u16,
+    /// Default: 32768u16 (65535 = hair down to ankles, 0 = hair to top of ears)
+    pub size_longhair: u16,
+    /// Default: 32768u16 (65535 = wide hips, 0 = small hips)
+    pub size_hips: u16,
+    /// Default: 32768u16 (65535 = wide waist, 0 = small waist)
+    pub size_waist: u16,
+    /// Default: 32768u16 (65535 = wide ankles, 0 = small ankles)
+    pub size_ankle: u16,
+    /// Default: 32768u16 (65535 = long foot hair, 0 = no foot hair)
+    pub size_foothair: u16,
+    /// Default: 32768u16 (65535 = long armpit hair, 0 = no armpit hair)
+    pub size_armpithair: u16,
+    /// Default: 32768u16 (65535 = long nose hair, 0 = no nose hair)
+    pub size_nosehair: u16,
     /// Default: 32768u16 (65535 = thick eyebrows, 0 = thin eyebrows)
     pub thickness_eyebrow: u16,
     /// Default: 32768u16 (65535 = unibrow, 0 = no eyebrows)
     pub width_eyebrow: u16,
-    /// Default: 32768u16 (65535 = ears stick out, 0 = flat ears)
-    pub ear_size: u16,
-    /// Default: 32768u16 (65535 = double chin, 0 = mouth very close to chin)
-    pub chin_size: u16,
-    /// Default: 32768u16 (65535 = spaced out face, 0 = compact face)
-    pub face_size: u16,
-    /// Default: 32768u16 (65535 = tall forehead, 0 = short forehead)
-    pub forehead_size: u16,
-    /// Default: 32768u16 (65535 = convex/chipmunk cheeks, 0 = concave/bony cheeks)
-    pub cheek_size: u16,
-    /// Default: 32768u16 (65535 = wrinkly skin, 0 = shiny skin)
-    pub wrinkle_size: u16,
-    /// Default: 0u16 (65535 = long mustache (extends off face), 0 = no mustache)
-    pub mustache_size: u16,
-    /// Default: 0u16 (65535 = long beard (down to knees), 0 = no beard)
-    pub beard_size: u16,
-    /// Default: 32768u16 (65535 = thick/long hair on sides, 0 = shaved on sides hair)
-    pub sidehair_size: u16,
-    /// Default: 32768u16 (65535 = long hair, 0 = shaved)
-    pub bodyhair_size: u16,
-    /// Default: 32768u16 (65535 = protruding bottom of chin, 0 = rounded bottom of chin)
-    pub chinextend_size: u16,
-    /// Default: 32768u16 (65535 = back of head extends, 0 = back of head is flat with neck)
-    pub backhead_size: u16,
-    /// Default: 32768u16 (65535 = hair down to ankles, 0 = hair to top of ears)
-    pub longhair_size: u16,
-    /// Default: 32768u16 (65535 = wide hips, 0 = small hips)
-    pub hips_size: u16,
-    /// Default: 32768u16 (65535 = wide waist, 0 = small waist)
-    pub waist_size: u16,
-    /// Default: 32768u16 (65535 = wide ankles, 0 = small ankles)
-    pub ankle_size: u16,
-    /// Default: 32768u16 (65535 = long foot hair, 0 = no foot hair)
-    pub foothair_size: u16,
-    /// Default: 32768u16 (65535 = long armpit hair, 0 = no armpit hair)
-    pub armpithair_size: u16,
-    /// Default: 32768u16 (65535 = long nose hair, 0 = no nose hair)
-    pub nosehair_size: u16,
     /// Default: 32768 (65535 = round body, 0 = straight body)
     pub roundness_body: u16,
     /// Default: 32768u16 (65535 = finger rounded edges, 0 = finger right angles)
@@ -135,24 +137,26 @@ pub struct Bloke {
     pub roundness_head: u16,
     /// Default: 32768u16 (65535 = round ear, 0 = pointy ear)
     pub roundness_ear: u16,
-    /// Default: 32768u16 (65535 = more brown-red color, 0 = more brown-blue color)
-    pub color_skinhue: u16,
-    /// Default: 32768u16 (65535 = dark (black) skin, 0 = light (white) skin)
-    pub color_skinshade: u16,
-    /// Default: 32768u16 (65535 = light red, 0 = light blue)
-    pub color_lip: u16,
-    /// Default: 0 (65535 = yellow, 0 = white)
-    pub color_teeth: u16,
-    /// Default: 0b1111_1111_1111_1111 (4 bit = 4 teeth, top left, right, bottom left, right)
-    pub havewhich_teeth: u16,
     /// Default: 32768u16 (65535 = long fingernails, 0 = short fingernails)
     pub len_nail: u16,
     /// Default: 32768u16 (65535 = long, 0 = short)
     pub len_arm: u16,
     /// Default: 32768u16 (65535 = eyes far apart, 0 = eyes close to each other)
     pub dist_eye: u16,
+    /// Default: 32768u16 (65535 = wrinkly skin, 32768 = rough skin, 0 = shiny smooth skin)
+    pub skin: u16,
     /// Default: 32768 (65535 = face & limb freckles, 32768 = limb freckles, 0 = no freckles)
-    pub freckles: u16,
+    pub has_freckles: u16,
+    /// Default: 0b1111_1111_1111_1111 (4 bit = 4 teeth, top left, right, bottom left, right)
+    pub has_teeth: u16,
+    /// Default: 0 (65535 = yellow, 0 = white)
+    pub color_teeth: u16,
+    /// Default: 32768u16 (65535 = light red, 0 = light blue)
+    pub color_lip: u16,
+    /// Default: 32768u16 (65535 = more brown-red color, 0 = more brown-blue color)
+    pub color_skinhue: u16,
+    /// Default: 32768u16 (65535 = dark (black) skin, 0 = light (white) skin)
+    pub color_skinshade: u16,
     /// Default: (32 bit RGBA)
     pub color_headhair1: u32,
     /// Default: (32 bit RGBA)
@@ -179,8 +183,18 @@ pub struct Bloke {
     pub color_fingertoenail: u32,
     /// Default: 32768u16 (65535 = high pitched, 0 = low pitched)
     pub voice_pitch: u16,
-    /// Default: 32768u16 (TODO)
+    /// Default: 0u16 (TODO)
     pub voice_waveform: u16,
+}
+
+impl Bloke {
+    pub fn save(&self) -> Vec<u8> {
+        serialize(self).unwrap()
+    }
+
+    pub fn load(data: &[u8]) -> Bloke {
+        deserialize(data).unwrap()
+    }
 }
 
 #[cfg(test)]
